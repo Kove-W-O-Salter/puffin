@@ -29,7 +29,7 @@ library:
 
 executables:
   puffin-exe:
-    main:                Main.hs
+    main:                Main.lhs
     source-dirs:         app
     ghc-options:
     - -threaded

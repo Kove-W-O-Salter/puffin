@@ -12,12 +12,10 @@
 > puffin :: FilePath -> FilePath -> IO ()
 > puffin birdFile outputFile =
 >   do contents <- readFile birdFile
->      putStrLn contents
->      case fromBird "" contents of
+>      case fromBird birdFile contents of
 >        Left  error   -> print error
 >        Right general ->
->          do print general
->             outputExists <- doesFileExist outputFile
+>          do outputExists <- doesFileExist outputFile
 >             if outputExists
 >               then putStrLn $ concat [ "The output-file \'"
 >                                      , outputFile
