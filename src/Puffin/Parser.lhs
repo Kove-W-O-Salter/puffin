@@ -11,6 +11,7 @@
 > sections :: Parser [Section]
 > sections = manyTill section eof
 >   where section =  emptyLine
+>                <|> commentLine
 >                <|> cppLine
 >                <|> codeLine
 >                <|> docBlock
@@ -19,6 +20,12 @@
 > emptyLine =
 >   do eol
 >      return EmptyLine
+
+> commentLine :: Parser Section
+> commentLine =
+>   do noneOf "#|>"
+>      line
+>      return CommentLine
 
 > cppLine :: Parser Section
 > cppLine =
