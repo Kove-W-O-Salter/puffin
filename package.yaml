@@ -23,6 +23,7 @@ dependencies:
 - base >= 4.7 && < 5
 - parsec
 - directory
+- system-eol
 
 library:
   source-dirs: src
@@ -37,6 +38,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - puffin
+    - system-eol
 
 tests:
   puffin-test:

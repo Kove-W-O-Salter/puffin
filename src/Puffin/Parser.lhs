@@ -5,6 +5,8 @@
 
 > import Text.ParserCombinators.Parsec
 
+> import qualified System.Eol (eol)
+
 > fromBird :: String -> FilePath -> Either ParseError [Section]
 > fromBird = parse sections
 
@@ -54,5 +56,5 @@
 
 > eol :: Parser ()
 > eol =
->   do string "\n"
+>   do string System.Eol.eol
 >      return ()

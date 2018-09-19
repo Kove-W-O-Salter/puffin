@@ -9,6 +9,8 @@
 
 > import Data.List (intersperse)
 
+> import System.Eol (eol)
+
 > puffin :: FilePath -> FilePath -> IO ()
 > puffin input output =
 >   mif (doesFileExist input)
@@ -36,8 +38,8 @@
 > toNormal []     = []
 > toNormal (s:ss) = toNormal' s ++ toNormal ss
 >   where
->     toNormal' EmptyLine        = "\n"
+>     toNormal' EmptyLine        = eol
 >     toNormal' CommentLine      = []
->     toNormal' (CppLine line)   = "#" ++ line ++ "\n"
->     toNormal' (CodeLine line)  = line ++ "\n"
->     toNormal' (DocBlock block) = concat $ intersperse "\n" $ concat [["{-|"], block, ["-}\n"]]
+>     toNormal' (CppLine line)   = "#" ++ line ++ eol
+>     toNormal' (CodeLine line)  = line ++ eol
+>     toNormal' (DocBlock block) = (concat $ intersperse eol $ concat [["{-|"], block, ["-}"]]) ++ eol
