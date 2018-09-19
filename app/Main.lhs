@@ -20,12 +20,9 @@
 >     [input] ->
 >       do [output] <- prompt ["output-file: "]
 >          return (input, output)
->     [input, output] ->
->       return (input, output)
+>     [input, output] -> return (input, output)
 >     _ ->
->       do [input, output] <- prompt [ "input-file: "
->                                    , "output-file: "
->                                    ]
+>       do [input, output] <- prompt [ "input-file: ", "output-file: "]
 >          return (input, output)
 
 > prompt :: [String] -> IO [String]
@@ -33,8 +30,6 @@
 >   where prompt' message =
 >           do putStr' message
 >              getLine
-
-> putStr' :: String -> IO ()
-> putStr' xs =
->   do putStr xs
->      hFlush stdout
+>         putStr' xs =
+>           do putStr xs
+>              hFlush stdout

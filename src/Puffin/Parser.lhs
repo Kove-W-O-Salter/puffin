@@ -10,11 +10,12 @@
 
 > sections :: Parser [Section]
 > sections = manyTill section eof
->   where section =  emptyLine
->                <|> commentLine
->                <|> cppLine
->                <|> codeLine
->                <|> docBlock
+>   where
+>     section =  emptyLine
+>            <|> commentLine
+>            <|> cppLine
+>            <|> codeLine
+>            <|> docBlock
 
 > emptyLine :: Parser Section
 > emptyLine =
@@ -43,9 +44,10 @@
 > docBlock =
 >   do lines <- many docLine
 >      return $ DocBlock lines
->   where docLine =
->           do string "| "
->              line
+>   where
+>     docLine =
+>       do string "| "
+>          line
 
 > line :: Parser String
 > line = manyTill anyChar eol

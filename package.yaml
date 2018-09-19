@@ -1,10 +1,10 @@
 name:                puffin
 version:             0.1.0.0
 github:              "Kove-W-O-Salter/puffin"
-license:             BSD3
+license:             MIT
 author:              "Kove W. Ochre-Salter"
 maintainer:          "kove.w.o.salter@gmail.com"
-copyright:           "MIT"
+copyright:           "Kove W. Ochre-Salter"
 
 extra-source-files:
 - README.md
