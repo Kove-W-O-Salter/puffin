@@ -42,4 +42,4 @@
 >     toNormal' CommentLine      = []
 >     toNormal' (CppLine line)   = "#" ++ line ++ eol
 >     toNormal' (CodeLine line)  = line ++ eol
->     toNormal' (DocBlock block) = (concat $ intersperse eol $ concat [["{-|"], block, ["-}"]]) ++ eol
+>     toNormal' (DocBlock block) = "-- |" ++ (concat $ intersperse "-- " $ map (++eol) block)
