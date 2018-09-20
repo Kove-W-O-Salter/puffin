@@ -1,3 +1,13 @@
+> -- |
+> -- Module      : Main
+> -- Description : The main module of our executable
+> -- Copyright   : (c) Kove W. Ochre-Salter, 2018
+> -- License     : MIT
+> -- Maintainer  : kove.w.o.salter@gmail.com
+> -- Stability   : experimental
+> -- Portability : Cross platform
+> -- 
+> -- The main module.
 
 > module Main (main) where
 
@@ -14,6 +24,9 @@
 >      puffin input output
 >           
 
+> -- |If an insufficient number of elements is in
+> -- a list of strings, retrieve the missing.
+
 > assert :: [String] -> IO (FilePath, FilePath)
 > assert args =
 >   case args of
@@ -24,6 +37,8 @@
 >     _ ->
 >       do [input, output] <- prompt [ "input-file: ", "output-file: "]
 >          return (input, output)
+
+> -- |Prompt for each item in a list of strings.
 
 > prompt :: [String] -> IO [String]
 > prompt = mapM prompt'
